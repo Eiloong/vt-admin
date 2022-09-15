@@ -1,13 +1,15 @@
 import { createRouter, RouteRecordRaw, createWebHashHistory } from 'vue-router'
 
+import Layout from '../layout/index.vue'
+
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/test'
+    redirect: '/layout'
   },
   {
-    path: '/test',
-    component: () => import('../views/test.vue')
+    path: '/layout',
+    component: Layout
   }
 ]
 
