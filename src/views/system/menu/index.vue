@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div>sys/menu</div>
 </template>
 
 <script setup lang="ts"></script>

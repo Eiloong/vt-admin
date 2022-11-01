@@ -2,7 +2,6 @@
   <div class="header">
     <div class="header-left flx-center">
       <CollapseIcon />
-      <Breadcrumb />
     </div>
     <div class="header-right flx-center">
       <el-dropdown>
@@ -20,7 +19,6 @@
 
 <script lang="ts" setup>
 import CollapseIcon from './CollapseIcon.vue'
-import Breadcrumb from './Breadcrumb.vue'
 
 const hangleSignOut = () => {
   // router.push('/login')
@@ -38,6 +36,10 @@ const hangleSignOut = () => {
   border-bottom: 1px solid #f6f6f6;
   background-color: #ffffff;
   box-sizing: border-box;
+}
+.header .header-left {
+  display: flex;
+  align-items: center;
 }
 .header .header-left .collapse-icon {
   margin-right: 20px;

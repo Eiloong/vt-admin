@@ -11,9 +11,9 @@
           :closable="item.close"
         >
           <template #label>
-            <el-icon class="tabs-icon" v-if="item.icon">
+            <!-- <el-icon class="tabs-icon" v-if="item.icon">
               <component :is="item.icon"></component>
-            </el-icon>
+            </el-icon> -->
             {{ item.title }}
           </template>
         </el-tab-pane>
@@ -21,7 +21,7 @@
       <el-dropdown trigger="click">
         <el-button size="small" type="primary">
           <span>更多</span>
-          <el-icon class="el-icon--right"><arrow-down /></el-icon>
+          <!-- <el-icon class="el-icon--right"><arrow-down /></el-icon> -->
         </el-button>
         <template #dropdown>
           <el-dropdown-menu>
@@ -35,23 +35,23 @@
   </div>
 </template>
 
-<!-- <script lang="ts" setup>
+<script lang="ts" setup>
 import { computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { useTabStore } from '@/store/modules/tab'
+import { useAppStore } from '../../store/modules/app'
 
 const route = useRoute()
 const router = useRouter()
-const tabStore = useTabStore()
+const appStore = useAppStore()
 
-const tabViewsPath = computed(() => tabStore.tabViewsPath)
+const tabViewsPath = computed(() => appStore.tabViewsPath)
 
 const tabViewActive = computed({
   get: () => {
-    return tabStore.tabViewActive
+    return appStore.tabViewActive
   },
-  set: (val: any) => {
-    tabStore.settabViewActive(val)
+  set: (val) => {
+    appStore.settabViewActive(val)
   }
 })
 
@@ -60,11 +60,11 @@ watch(
   () => route.path,
   () => {
     let params = {
-      title: route.meta.title as string,
+      title: route.meta.title,
       path: route.path,
       close: route.path === '/home' ? false : true
     }
-    tabStore.addTabViewsPath(params)
+    appStore.setAddTabViewsPath(params)
   },
   {
     immediate: true
@@ -72,26 +72,26 @@ watch(
 )
 
 const onTab = (tab: any) => {
-  let path = tab.props.name as string
+  let path = tab.props.name
   router.push(path)
 }
 
 const removeTab = (activeTabPath: string) => {
-  tabStore.removeTabs(activeTabPath)
+  appStore.setRemoveTabs(activeTabPath)
 }
 
 const closeCurrentTab = () => {
-  if (tabStore.tabViewActive === '/home') return
-  tabStore.removeTabs(tabStore.tabViewActive)
+  if (appStore.tabViewActive === '/home') return
+  appStore.setRemoveTabs(appStore.tabViewActive)
 }
 const closeOtherTab = () => {
-  tabStore.closeMultipleTab(tabStore.tabViewActive)
+  appStore.setCloseMultipleTab(appStore.tabViewActive)
 }
 const closeAllTab = () => {
-  tabStore.closeMultipleTab()
-  tabStore.goHome()
+  appStore.setCloseMultipleTab()
+  appStore.goHome()
 }
-</script> -->
+</script>
 
 <style lang="scss" scoped>
 .tabs-box {
@@ -100,7 +100,7 @@ const closeAllTab = () => {
     width: 100%;
     box-shadow: 0 1px 3px rgb(184 184 184 / 50%);
     z-index: 999;
-    background-color: #eee;
+    // background-color: #eee;
     .el-dropdown {
       position: absolute;
       top: 8px;
