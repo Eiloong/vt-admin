@@ -10,7 +10,7 @@
       <el-col :span="15">
         <el-input type="text" maxlength="4" v-model="form.code" clearable autocomplete="off">
           <template #prefix>
-            <el-icon class="el-input__icon"><ele-Position /></el-icon>
+            <!-- <el-icon class="el-input__icon"><ele-Position /></el-icon> -->
           </template>
         </el-input>
       </el-col>

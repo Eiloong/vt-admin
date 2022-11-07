@@ -5,6 +5,7 @@ import { store } from '../store'
 import { useUserStore } from '../store/modules/user'
 import { useRouteStore } from '../store/modules/route'
 import { initFrontEndControlRoutes } from './frontEnd'
+import { NproStart, NproClose } from '../utils/nprogress'
 
 let UserStore: any = useUserStore(store)
 let routesStore: any = useRouteStore(store)
@@ -129,15 +130,20 @@ export async function resetRoute() {
 }
 
 router.beforeEach(async (to, from, next) => {
+  if (to.meta.title) NproStart()
   const token = sessionStorage.getItem('token')
   if (to.path === '/login' && !token) {
     next()
+    NproClose()
   } else {
     if (!token) {
       next(`/login?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`)
+      sessionStorage.clear()
       resetRoute()
+      NproClose()
     } else if (token && to.path === '/login') {
-      next('/login')
+      next('/home')
+      NproClose()
     } else {
       if (routesStore.routeList.length === 0) {
         initFrontEndControlRoutes()
@@ -147,6 +153,11 @@ router.beforeEach(async (to, from, next) => {
       }
     }
   }
+})
+
+// 路由加载后
+router.afterEach(() => {
+  NproClose()
 })
 
 export function setupRouter(app: App) {
