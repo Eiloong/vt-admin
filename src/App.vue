@@ -9,7 +9,7 @@
   margin: 0;
   padding: 0;
 }
-html,
+/* html,
 body {
   width: 100%;
   height: 100vh;
@@ -19,6 +19,22 @@ body {
 #app {
   width: 100%;
   height: 100%;
+} */
+html,
+body,
+#app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--next-bg-main-color);
+  font-size: 14px;
+  overflow: hidden;
+  position: relative;
 }
 .el-menu-item.is-active {
   background-color: #007bfa3d;

@@ -11,4 +11,5 @@ export interface UserInfo {
   desc?: string
   homePath?: string
   roles?: string[]
+  authBtnList?: string[]
 }

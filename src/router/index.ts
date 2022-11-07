@@ -129,7 +129,7 @@ export async function resetRoute() {
 }
 
 router.beforeEach(async (to, from, next) => {
-  const token = 'aaa'
+  const token = sessionStorage.getItem('token')
   if (to.path === '/login' && !token) {
     next()
   } else {

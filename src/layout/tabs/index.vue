@@ -82,7 +82,8 @@ const removeTab = (activeTabPath: string) => {
 
 const closeCurrentTab = () => {
   if (appStore.tabViewActive === '/home') return
-  appStore.setRemoveTabs(appStore.tabViewActive)
+  removeTab(appStore.tabViewActive)
+  // appStore.setRemoveTabs(appStore.tabViewActive)
 }
 const closeOtherTab = () => {
   appStore.setCloseMultipleTab(appStore.tabViewActive)

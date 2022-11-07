@@ -40,18 +40,20 @@ export const useAppStore = defineStore({
       this.settabViewActive(tabItem.path)
       router.push(tabItem.path)
     },
-    setRemoveTabs(tabsPath: string) {
+    async setRemoveTabs(tabPath: string) {
       let tabViewActive = this.tabViewActive
-      let tabViewsPath = this.tabViewsPath
-      if (tabViewActive === tabsPath) {
+      const tabViewsPath = this.tabViewsPath
+      if (tabViewActive === tabPath) {
         tabViewsPath.forEach((item, index) => {
-          if (item.path !== tabsPath) return
+          if (item.path !== tabPath) return
           const nextTab = tabViewsPath[index + 1] || tabViewsPath[index - 1]
           if (!nextTab) return
           tabViewActive = nextTab.path
           router.push(nextTab.path)
         })
       }
+      this.tabViewActive = tabViewActive
+      this.tabViewsPath = tabViewsPath.filter((item) => item.path !== tabPath)
     },
     settabViewActive(tabViewActive: string) {
       this.tabViewActive = tabViewActive

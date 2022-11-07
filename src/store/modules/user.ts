@@ -12,7 +12,8 @@ export const useUserStore = defineStore({
     userInfo: {
       userId: '',
       username: '',
-      roles: ['admin']
+      roles: ['admin'],
+      authBtnList: []
     },
     token: ''
   }),
