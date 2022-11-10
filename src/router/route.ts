@@ -51,7 +51,7 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
         path: '/home',
         component: () => import('@/views/home/index.vue'),
         meta: {
-          title: '首页',
+          title: 'message.router.home',
           isLink: false,
           isHide: false,
           isKeepAlive: true,
@@ -67,7 +67,7 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
         component: () => import('@/layout/routerView/parent.vue'),
         redirect: '/system/menu',
         meta: {
-          title: '系统设置',
+          title: 'message.router.system',
           isLink: '',
           isHide: false,
           isKeepAlive: true,
@@ -82,7 +82,7 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
             name: 'systemMenu',
             component: () => import('@/views/system/menu/index.vue'),
             meta: {
-              title: '菜单管理',
+              title: 'message.router.systemMenu',
               isLink: '',
               isHide: false,
               isKeepAlive: true,
@@ -97,7 +97,7 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
             name: 'systemRole',
             component: () => import('@/views/system/role/index.vue'),
             meta: {
-              title: '角色管理',
+              title: 'message.router.systemRole',
               isLink: '',
               isHide: false,
               isKeepAlive: true,
@@ -112,7 +112,7 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
             name: 'systemUser',
             component: () => import('@/views/system/user/index.vue'),
             meta: {
-              title: '用户管理',
+              title: 'message.router.systemUser',
               isLink: '',
               isHide: false,
               isKeepAlive: true,
@@ -127,7 +127,7 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
             name: 'systemDept',
             component: () => import('@/views/system/dept/index.vue'),
             meta: {
-              title: '部门管理',
+              title: 'message.router.systemDept',
               isLink: '',
               isHide: false,
               isKeepAlive: true,
@@ -142,7 +142,7 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
             name: 'systemDic',
             component: () => import('@/views/system/dic/index.vue'),
             meta: {
-              title: '字典管理',
+              title: 'message.router.systemDic',
               isLink: '',
               isHide: false,
               isKeepAlive: true,

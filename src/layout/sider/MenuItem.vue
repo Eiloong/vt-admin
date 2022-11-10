@@ -5,7 +5,8 @@
         <!-- <el-icon>
           <component :is="item.meta.icon"></component>
         </el-icon> -->
-        <span>{{ item.meta.title }}</span>
+        <!-- <span>{{ item.meta.title }}</span> -->
+        <span>{{ $t(item.meta.title) }}</span>
       </template>
       <MenuItem :menuList="item.children" />
     </el-sub-menu>
@@ -14,7 +15,7 @@
         <component :is="item.icon"></component>
       </el-icon> -->
       <template v-if="!item.meta.isLink" #title>
-        <span>{{ item.meta.title }}</span>
+        <span>{{ $t(item.meta.title) }}</span>
       </template>
       <template v-else #title>
         <a :href="item.meta.isLink" target="_blank" rel="opener" style="width: 100%">{{ item.meta.isLink }}</a>
@@ -29,11 +30,17 @@ export default defineComponent({
   name: 'MenuItem',
   props: {
     menuList: Array as any
-  },
-  setup() {
-    return {}
   }
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.el-menu-item {
+  transition: background-color var(--el-transition-duration), color var(--el-transition-duration);
+  box-sizing: border-box;
+}
+.el-menu-item.is-active {
+  background-color: #85c2ff3d;
+  border-right: 2px solid rgb(94, 94, 246);
+}
+</style>

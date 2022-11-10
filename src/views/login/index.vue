@@ -2,8 +2,8 @@
   <div class="login-container">
     <div class="login-icon-group">
       <div class="login-icon-group-title">
-        <img src="" />
-        <div class="login-icon-group-title-text font25">zzz</div>
+        <img src="@/assets/vite.svg" />
+        <div class="login-icon-group-title-text font25">Vite + Vue + TS</div>
       </div>
       <img :src="LoginIconTow" class="login-icon-group-icon" />
     </div>
@@ -12,10 +12,10 @@
         <h4 class="login-content-title ml15">后台模板</h4>
         <div v-if="!loginState.isScan">
           <el-tabs v-model="loginState.tabsActiveName">
-            <el-tab-pane :label="'account'" name="account">
+            <el-tab-pane :label="$t('message.login.account')" name="account">
               <Account />
             </el-tab-pane>
-            <el-tab-pane :label="'mobile'" name="mobile">
+            <el-tab-pane :label="$t('message.login.mobile')" name="mobile">
               <Mobile />
             </el-tab-pane>
           </el-tabs>
@@ -56,6 +56,21 @@ const loginState = reactive<ILoginState>({
     width: 100%;
     height: 100%;
     position: relative;
+    .login-icon-group-title {
+      position: absolute;
+      top: 50px;
+      left: 80px;
+      display: flex;
+      align-items: center;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+      &-text {
+        padding-left: 15px;
+        color: var(--el-color-primary);
+      }
+    }
     &::before {
       content: '';
       position: absolute;

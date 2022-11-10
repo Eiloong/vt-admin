@@ -1,7 +1,13 @@
 <template>
   <el-form size="large" class="login-content-form">
     <el-form-item class="login-animation1">
-      <el-input type="text" :placeholder="'message.mobile.placeholder1'" v-model="mobile" clearable autocomplete="off">
+      <el-input
+        type="text"
+        :placeholder="$t('message.login.mobilePlaceholder1')"
+        v-model="mobile"
+        clearable
+        autocomplete="off"
+      >
         <template #prefix>
           <i class="iconfont icon-dianhua el-input__icon"></i>
         </template>
@@ -12,7 +18,7 @@
         <el-input
           type="text"
           maxlength="4"
-          :placeholder="'message.mobile.placeholder2'"
+          :placeholder="$t('message.login.mobilePlaceholder2')"
           v-model="code"
           clearable
           autocomplete="off"
@@ -24,15 +30,19 @@
       </el-col>
       <el-col :span="1"></el-col>
       <el-col :span="8">
-        <el-button class="login-content-code">message.mobile.codeText</el-button>
+        <el-button class="login-content-code">
+          {{ $t('message.login.mobileCodeText') }}
+        </el-button>
       </el-col>
     </el-form-item>
     <el-form-item class="login-animation3">
       <el-button round type="primary" class="login-content-submit">
-        <span>message.mobile.btnText</span>
+        <span>{{ $t('message.login.btnText') }}</span>
       </el-button>
     </el-form-item>
-    <div class="font12 mt30 login-animation4 login-msg">message.mobile.msgText</div>
+    <div class="font12 mt30 login-animation4 login-msg">
+      {{ $t('message.login.msgText') }}
+    </div>
   </el-form>
 </template>
 

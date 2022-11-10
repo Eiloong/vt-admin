@@ -21,7 +21,7 @@ export const useAppStore = defineStore({
   id: 'app',
   state: (): AppStore => ({
     collapse: false,
-    tabViewsPath: [{ title: '首页', path: '/home', icon: 'home-filled', close: false }], // 访问路经
+    tabViewsPath: [{ title: 'message.router.home', path: '/home', icon: 'home-filled', close: false }], // 访问路经
     tabViewActive: '/home' // 当前激活的tab
   }),
   actions: {

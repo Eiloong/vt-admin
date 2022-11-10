@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 100vh">
+  <div style="height: 100%">
     <router-view v-slot="{ Component }">
       <transition :name="setTransitionName" mode="out-in">
         <keep-alive>

@@ -1,5 +1,5 @@
 <template>
-  <div>dic</div>
+  <div>sys/dic</div>
 </template>
 
 <script setup lang="ts"></script>

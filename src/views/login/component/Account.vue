@@ -1,14 +1,21 @@
 <template>
   <el-form size="large" class="login-content-form">
     <el-form-item class="login-animation1">
-      <el-input type="text" v-model="form.username" />
+      <el-input type="text" v-model="form.username" :placeholder="$t('message.login.accountPlaceholder1')" />
     </el-form-item>
     <el-form-item class="login-animation2">
-      <el-input type="password" v-model="form.password" />
+      <el-input type="password" v-model="form.password" :placeholder="$t('message.login.accountPlaceholder2')" />
     </el-form-item>
     <el-form-item class="login-animation3">
       <el-col :span="15">
-        <el-input type="text" maxlength="4" v-model="form.code" clearable autocomplete="off">
+        <el-input
+          type="text"
+          maxlength="4"
+          v-model="form.code"
+          clearable
+          autocomplete="off"
+          :placeholder="$t('message.login.accountPlaceholder3')"
+        >
           <template #prefix>
             <!-- <el-icon class="el-input__icon"><ele-Position /></el-icon> -->
           </template>
@@ -16,11 +23,13 @@
       </el-col>
       <el-col :span="1"></el-col>
       <el-col :span="8">
-        <el-button>1234</el-button>
+        <el-button>1 2 3 4</el-button>
       </el-col>
     </el-form-item>
     <el-form-item class="login-animation4">
-      <el-button type="primary" @click="handleLogin" :loading="loading" round>登录</el-button>
+      <el-button type="primary" @click="handleLogin" :loading="loading" round>
+        {{ $t('message.login.btnText') }}
+      </el-button>
     </el-form-item>
   </el-form>
 </template>
@@ -132,9 +141,6 @@ const vData = (defaultRoles: string[], defaultAuthBtnList: string[]) => {
       animation-fill-mode: forwards;
       animation-delay: calc($i/10) + s;
     }
-  }
-  .el-form-item--large .el-form-item__content {
-    line-height: 0;
   }
 }
 @keyframes error-num {

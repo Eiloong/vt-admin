@@ -48,7 +48,7 @@ import LayoutParentView from './routerView/parent.vue'
     overflow-x: hidden;
     .main-container {
       padding: 10px;
-      background-color: #eee;
+      background-color: var(--next-bg-main-color);
     }
   }
 }

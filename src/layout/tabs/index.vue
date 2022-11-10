@@ -14,7 +14,7 @@
             <!-- <el-icon class="tabs-icon" v-if="item.icon">
               <component :is="item.icon"></component>
             </el-icon> -->
-            {{ item.title }}
+            {{ $t(item.title) }}
           </template>
         </el-tab-pane>
       </el-tabs>
