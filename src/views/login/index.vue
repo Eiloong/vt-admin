@@ -32,7 +32,7 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-import LoginIconTow from '../../assets/login-icon-two.svg'
+import LoginIconTow from '@/assets/login-icon.svg'
 import Account from './component/Account.vue'
 import Mobile from './component/Mobile.vue'
 
