@@ -29,7 +29,7 @@
         </el-table-column>
         <el-table-column prop="describe" label="角色描述" show-overflow-tooltip></el-table-column>
         <el-table-column prop="createTime" label="创建时间" show-overflow-tooltip></el-table-column>
-        <el-table-column label="操作" width="100">
+        <el-table-column label="操作" width="140">
           <template #default="scope">
             <el-button
               :disabled="scope.row.roleName === '超级管理员'"
