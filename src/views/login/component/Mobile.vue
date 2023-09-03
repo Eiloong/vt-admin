@@ -9,7 +9,7 @@
         autocomplete="off"
       >
         <template #prefix>
-          <i class="iconfont icon-dianhua el-input__icon"></i>
+          <el-icon><Phone /></el-icon>
         </template>
       </el-input>
     </el-form-item>
@@ -18,13 +18,13 @@
         <el-input
           type="text"
           maxlength="4"
-          :placeholder="$t('message.login.mobilePlaceholder2')"
           v-model="code"
-          clearable
           autocomplete="off"
+          :placeholder="$t('message.login.mobilePlaceholder2')"
+          clearable
         >
           <template #prefix>
-            <!-- <el-icon class="el-input__icon"><ele-Position /></el-icon> -->
+            <el-icon><Position /></el-icon>
           </template>
         </el-input>
       </el-col>

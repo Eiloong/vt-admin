@@ -1,10 +1,27 @@
 <template>
   <el-form size="large" class="login-content-form">
     <el-form-item class="login-animation1">
-      <el-input type="text" v-model="form.username" :placeholder="$t('message.login.accountPlaceholder1')" />
+      <el-input type="text" v-model="form.username" :placeholder="$t('message.login.accountPlaceholder1')" clearable>
+        <template #prefix>
+          <el-icon><User /></el-icon>
+        </template>
+      </el-input>
     </el-form-item>
     <el-form-item class="login-animation2">
-      <el-input type="password" v-model="form.password" :placeholder="$t('message.login.accountPlaceholder2')" />
+      <el-input
+        :type="isPwdView ? 'text' : 'password'"
+        v-model="form.password"
+        :placeholder="$t('message.login.accountPlaceholder2')"
+      >
+        <template #prefix>
+          <el-icon><Lock /></el-icon>
+        </template>
+        <template #suffix>
+          <el-icon style="cursor: pointer">
+            <component :is="isPwdView ? 'Hide' : 'View'" @click="isPwdView = !isPwdView"></component>
+          </el-icon>
+        </template>
+      </el-input>
     </el-form-item>
     <el-form-item class="login-animation3">
       <el-col :span="15">
@@ -12,12 +29,12 @@
           type="text"
           maxlength="4"
           v-model="form.code"
-          clearable
           autocomplete="off"
+          clearable
           :placeholder="$t('message.login.accountPlaceholder3')"
         >
           <template #prefix>
-            <!-- <el-icon class="el-input__icon"><ele-Position /></el-icon> -->
+            <el-icon><Position /></el-icon>
           </template>
         </el-input>
       </el-col>
@@ -49,8 +66,9 @@ const form = reactive({
   password: '123456',
   code: '1234'
 })
-const loading = ref(false)
+const isPwdView = ref(false)
 
+const loading = ref(false)
 const handleLogin = async () => {
   loading.value = true
   let defaultRoles: Array<string> = []
@@ -114,7 +132,7 @@ const vData = (defaultRoles: string[], defaultAuthBtnList: string[]) => {
   }
   // 用户信息模拟数据
   const userInfos = {
-    userId: 1,
+    userId: form.username === 'admin' ? 0 : 1,
     username: form.username,
     avatar:
       form.username === 'admin'
